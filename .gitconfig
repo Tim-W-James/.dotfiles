@@ -1,11 +1,11 @@
 [user]
-	name = Tim W James
-	email = 38764646+Tim-W-James@users.noreply.github.com
+  name = Tim W James
+  email = 38764646+Tim-W-James@users.noreply.github.com
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
 [alias]
   aa = add --all
   ap = add --patch
@@ -31,6 +31,6 @@
 [init]
   defaultBranch = main
 [core]
-	editor = code --wait
+  editor = code --wait
 [push]
   default = current

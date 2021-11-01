@@ -1,11 +1,11 @@
 Add sym link in Powershell:
 
-``` -sh
+```sh
 New-Item -ItemType SymbolicLink -Path ~\.gitconfig -Target ~\.dotfiles\.gitconfig
 ```
 
 Add sym link in shell:
 
-``` -sh
+```sh
 ln -s ~\.dotfiles\.gitconfig ~\.gitconfig
 ```
