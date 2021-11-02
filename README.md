@@ -7,5 +7,5 @@ New-Item -ItemType SymbolicLink -Path ~\.gitconfig -Target ~\.dotfiles\.gitconfi
 Add sym link in shell:
 
 ```sh
-ln -s ~\.dotfiles\.gitconfig ~\.gitconfig
+ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 ```
