@@ -11,5 +11,12 @@
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "editor.tabSize": 2,
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "cSpell.ignoreWords": [
+        "Vite"
+    ],
+    "terminal.integrated.fontFamily": "CaskaydiaCove NF",
+    "emmet.includeLanguages": {
+        "javascript": "html"
+    }
 }
