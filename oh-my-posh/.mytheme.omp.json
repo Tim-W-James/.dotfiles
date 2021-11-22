@@ -1,0 +1,91 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "background": "#ff3026",
+          "foreground": "#100e23",
+          "powerline_symbol": "",
+          "properties": {
+            "root_icon": ""
+          },
+          "style": "powerline",
+          "type": "root"
+        },
+        {
+          "background": "#cfcfc4",
+          "foreground": "#100e23",
+          "powerline_symbol": "",
+          "style": "powerline",
+          "type": "session"
+        },
+        {
+          "background": "#ec9706",
+          "foreground": "#100e23",
+          "powerline_symbol": "",
+          "properties": {
+            "folder_icon": "",
+            "folder_separator_icon": "  ",
+            "home_icon": "",
+            "style": "full"
+          },
+          "style": "powerline",
+          "type": "path"
+        },
+        {
+          "background": "#95ffa4",
+          "foreground": "#193549",
+          "powerline_symbol": "",
+          "properties": {
+            "template": "{{ .HEAD }}"
+          },
+          "style": "powerline",
+          "type": "git"
+        },
+        {
+          "background": "#906cff",
+          "foreground": "#100e23",
+          "powerline_symbol": "",
+          "properties": {
+            "prefix": "  "
+          },
+          "style": "powerline",
+          "type": "python"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "background": "#ff4040",
+          "foreground": "#ffffff",
+          "leading_diamond": "",
+          "properties": {
+            "always_enabled": false,
+            "display_exit_code": false,
+            "prefix": " "
+          },
+          "style": "diamond",
+          "trailing_diamond": "",
+          "type": "exit"
+        },
+        {
+          "background": "#2f2f2f",
+          "foreground": "#fafafa",
+          "leading_diamond": "",
+          "properties": {
+            "style": "austin"
+          },
+          "style": "diamond",
+          "type": "executiontime"
+        }
+      ],
+      "type": "rprompt"
+    }
+  ],
+  "final_space": true
+}
