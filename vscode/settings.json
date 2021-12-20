@@ -13,10 +13,26 @@
     "editor.tabSize": 2,
     "editor.wordWrap": "on",
     "cSpell.ignoreWords": [
-        "Vite"
+        "Nums",
+        "Vite",
+        "behaviour",
+        "parameterless",
+        "todos"
     ],
     "terminal.integrated.fontFamily": "CaskaydiaCove NF",
     "emmet.includeLanguages": {
         "javascript": "html"
-    }
+    },
+    "liveServer.settings.donotVerifyTags": true,
+    "workbench.startupEditor": "none",
+    "explorer.confirmDelete": false,
+    "gitlens.advanced.messages": {
+        "suppressGitMissingWarning": true
+    },
+    "cSpell.enabled": false,
+    "vsicons.dontShowNewVersionMessage": true,
+    "git.confirmSync": false,
+    "terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
+    "editor.cursorBlinking": "phase",
+    "editor.cursorSmoothCaretAnimation": true
 }

@@ -1,5 +1,6 @@
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
+    "confirmCloseAllTabs": false,
     "actions":
     [
         {
@@ -11,12 +12,12 @@
             "keys": "ctrl+c"
         },
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
             "command": "paste",
             "keys": "ctrl+v"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command":
@@ -30,18 +31,15 @@
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
     "launchMode": "maximized",
     "profiles":
     {
-        "defaults":
-        {
-            "acrylicOpacity": 0.85999999999999999,
-            "useAcrylic": true
-        },
+        "defaults": {},
         "list":
         [
             {
+                "acrylicOpacity": 0.85999999999999999,
                 "commandline": "powershell.exe",
                 "font":
                 {
@@ -49,7 +47,8 @@
                 },
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
-                "name": "Windows PowerShell"
+                "name": "Windows PowerShell",
+                "useAcrylic": true
             },
             {
                 "commandline": "cmd.exe",
@@ -64,9 +63,8 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "colorScheme": "Campbell",
+                "acrylicOpacity": 0.85999999999999999,
                 "cursorShape": "vintage",
-                "experimental.retroTerminalEffect": false,
                 "font":
                 {
                     "face": "DejaVu Sans Mono for Powerline"
@@ -75,7 +73,7 @@
                 "hidden": false,
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl",
-                "startingDirectory": "//wsl$/Ubuntu/home/tim/",
+                "startingDirectory": "//wsl$/Ubuntu/home/timj/",
                 "useAcrylic": true
             }
         ]
@@ -289,5 +287,6 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ]
+    ],
+    "windowingBehavior": "useAnyExisting"
 }
