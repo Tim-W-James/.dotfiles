@@ -3,89 +3,166 @@
   "blocks": [
     {
       "alignment": "left",
+      "newline": true,
       "segments": [
         {
-          "background": "#ff3026",
-          "foreground": "#100e23",
-          "powerline_symbol": "",
+          "background": "#FEF5ED",
+          "foreground": "#011627",
+          "leading_diamond": "",
           "properties": {
-            "root_icon": ""
+            "macos": " ",
+            "postfix": "",
+            "ubuntu": " ",
+            "windows": " "
           },
-          "style": "powerline",
-          "type": "root"
+          "style": "diamond",
+          "trailing_diamond": "<transparent,#FEF5ED></>",
+          "type": "os"
         },
         {
-          "background": "#cfcfc4",
-          "foreground": "#100e23",
-          "powerline_symbol": "",
-          "style": "powerline",
-          "type": "session"
+          "background": "#FEF5ED",
+          "foreground": "#011627",
+          "leading_diamond": "",
+          "properties": {
+            "postfix": "",
+            "prefix": " "
+          },
+          "style": "diamond",
+          "trailing_diamond": "<transparent,#FEF5ED></>",
+          "type": "shell"
         },
         {
-          "background": "#ec9706",
-          "foreground": "#100e23",
-          "powerline_symbol": "",
+          "background": "#516BEB",
+          "foreground": "#ffffff",
+          "leading_diamond": "",
           "properties": {
-            "folder_icon": "",
-            "folder_separator_icon": "  ",
-            "home_icon": "",
-            "style": "agnoster"
+            "postfix": "% | ",
+            "prefix": " CPU: ",
+            "template": "{{ round .PhysicalPercentUsed .Precision }}"
           },
-          "style": "powerline",
-          "type": "path"
+          "style": "diamond",
+          "trailing_diamond": "",
+          "type": "sysinfo"
         },
         {
-          "background": "#95ffa4",
-          "foreground": "#193549",
-          "powerline_symbol": "",
+          "background": "#516BEB",
+          "foreground": "#ffffff",
+          "leading_diamond": "",
           "properties": {
-            "template": "{{ .HEAD }}"
+            "postfix": "GB  ",
+            "prefix": "MEM: ",
+            "template": "{{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1000000000.0) }}"
           },
-          "style": "powerline",
-          "type": "git"
+          "style": "diamond",
+          "trailing_diamond": "<transparent,#516BEB></>",
+          "type": "sysinfo"
         },
         {
-          "background": "#906cff",
-          "foreground": "#100e23",
-          "powerline_symbol": "",
+          "background": "#575656",
+          "foreground": "#d6deeb",
+          "leading_diamond": "",
           "properties": {
-            "prefix": "  "
+            "style": "roundrock",
+            "threshold": 0
           },
-          "style": "powerline",
-          "type": "python"
+          "style": "diamond",
+          "trailing_diamond": "",
+          "type": "executiontime"
         }
       ],
       "type": "prompt"
     },
     {
       "alignment": "right",
+      "newline": false,
       "segments": [
         {
-          "background": "#ff4040",
-          "foreground": "#ffffff",
-          "leading_diamond": "",
-          "properties": {
-            "always_enabled": false,
-            "display_exit_code": false,
-            "prefix": " "
-          },
-          "style": "diamond",
-          "trailing_diamond": "",
-          "type": "exit"
-        },
-        {
-          "background": "#2f2f2f",
-          "foreground": "#fafafa",
+          "background": "#17D7A0",
+          "foreground": "#011627",
           "leading_diamond": "",
           "properties": {
-            "style": "austin"
+            "branch_icon": " ",
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true,
+            "fetch_worktree_count": true,
+            "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}"
           },
           "style": "diamond",
-          "type": "executiontime"
+          "trailing_diamond": "",
+          "type": "git"
         }
       ],
-      "type": "rprompt"
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "properties": {
+            "postfix": "",
+            "prefix": "",
+            "text": "╭─"
+          },
+          "style": "plain",
+          "type": "text"
+        },
+        {
+          "properties": {
+            "postfix": " |",
+            "prefix": " ♥ ",
+            "time_format": "15:04"
+          },
+          "style": "plain",
+          "type": "time"
+        },
+        {
+          "properties": {
+            "root_icon": " "
+          },
+          "style": "plain",
+          "type": "root"
+        },
+        {
+          "properties": {
+            "enable_hyperlink": true,
+            "folder_icon": " ",
+            "folder_separator_icon": "  ",
+            "home_icon": " ",
+            "style": "agnoster_full"
+          },
+          "style": "plain",
+          "type": "path"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "properties": {
+            "always_enabled": true,
+            "prefix": "",
+            "template": "╰─"
+          },
+          "style": "plain",
+          "type": "exit"
+        }
+      ],
+      "type": "prompt"
     }
   ],
-  "final_space": true
+  "console_title": true,
+  "console_title_style": "template",
+  "console_title_template": "{{ .Folder }}",
+  "final_space": false,
+  "osc99": true,
+  "transient_prompt": {
+    "background": "transparent",
+    "foreground": "#FEF5ED",
+    "template": " "
+  }
 }

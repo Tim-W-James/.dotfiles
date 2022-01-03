@@ -67,7 +67,7 @@
                 "cursorShape": "vintage",
                 "font":
                 {
-                    "face": "DejaVu Sans Mono for Powerline"
+                    "face": "CaskaydiaCove NF"
                 },
                 "hidden": false,
                 "startingDirectory": "//wsl$/Ubuntu/home/timj/",
