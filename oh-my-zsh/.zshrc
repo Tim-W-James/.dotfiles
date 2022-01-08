@@ -1,7 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your oh-my-zsh installation (may need to be modified depending on username).
 export ZSH="/home/timja/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -70,6 +70,7 @@ ZSH_THEME="mytheme"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# Commented plugins require manual install
 plugins=(
   sudo copydir history
   git gh 
@@ -79,7 +80,7 @@ plugins=(
   vscode 
   docker jsontools
   python pip rust scala ruby gradle
-  zsh-autosuggestions
+#  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -112,4 +113,10 @@ export EDITOR='code'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias python="python3"
 
+# Auto install nvm:
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Use oh-my-posh (adjust theme name as required):
 # eval "$(oh-my-posh --init --shell zsh --config ~/.mytheme.omp.json)"
