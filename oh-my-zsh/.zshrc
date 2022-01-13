@@ -80,7 +80,7 @@ plugins=(
   vscode 
   docker kubectl jsontools
   python pip rust scala ruby gradle
-#  zsh-autosuggestions
+#  zsh-autosuggestions zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
