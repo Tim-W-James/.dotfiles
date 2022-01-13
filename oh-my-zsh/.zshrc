@@ -72,13 +72,13 @@ ZSH_THEME="mytheme"
 # Add wisely, as too many plugins slow down shell startup.
 # Commented plugins require manual install
 plugins=(
-  sudo copydir history
+  sudo copydir copyfile copybuffer history dirhistory web-search
   git gh 
   nvm node npm 
   aws 
   brew 
   vscode 
-  docker jsontools
+  docker kubectl jsontools
   python pip rust scala ruby gradle
 #  zsh-autosuggestions
 )
@@ -112,6 +112,10 @@ export EDITOR='code'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias python="python3"
+
+alias get-ports="netstat -tulnp | grep LISTEN"
+alias get-router="ip route | grep default"
+alias get-ip="hostname -I"
 
 # Auto install nvm:
 # export NVM_DIR="$HOME/.nvm"
