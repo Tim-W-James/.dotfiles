@@ -72,15 +72,18 @@ ZSH_THEME="mytheme"
 # Add wisely, as too many plugins slow down shell startup.
 # Commented plugins require manual install
 plugins=(
-  sudo copydir copyfile copybuffer history dirhistory web-search
+  sudo web-search tmux 
+  copydir copyfile copybuffer 
+  history dirhistory 
+  colorize colored-man-pages
   git gh 
   nvm node npm 
   aws 
+  docker kubectl jsontools
   brew 
   vscode 
-  docker kubectl jsontools
   python pip rust scala ruby gradle
-#  zsh-autosuggestions zsh-syntax-highlighting
+  # zsh-autosuggestions zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -99,6 +102,12 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 export EDITOR='code'
+
+# requires colorls to be installed: https://github.com/athityakumar/colorls#installation
+if [ -x "$(command -v colorls)" ]; then
+    alias ls="colorls"
+    alias la="colorls -al"
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
