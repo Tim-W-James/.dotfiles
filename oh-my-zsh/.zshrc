@@ -72,7 +72,7 @@ ZSH_THEME="mytheme"
 # Add wisely, as too many plugins slow down shell startup.
 # Commented plugins require manual install
 plugins=(
-  sudo web-search tmux 
+  sudo web-search tmux dotenv 
   copydir copyfile copybuffer 
   history dirhistory 
   colorize colored-man-pages
@@ -102,6 +102,11 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 export EDITOR='code'
+
+export ZSH_DOTENV_PROMPT=false
+
+# store environment variables here - must not be empty
+export $(cat ~/.my_env)
 
 # requires colorls to be installed: https://github.com/athityakumar/colorls#installation
 if [ -x "$(command -v colorls)" ]; then
