@@ -31,6 +31,10 @@
         "defaults":
         {
             // Put settings here that you want to apply to all profiles.
+            "acrylicOpacity": 0.85999999999999999,
+            "useAcrylic": true,
+            "cursorShape": "vintage",
+            "fontFace": "CaskaydiaCove NF"
         },
         "list":
         [
@@ -39,13 +43,7 @@
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "name": "Windows PowerShell",
                 "commandline": "powershell.exe",
-                "hidden": false,
-                "acrylicOpacity": 0.85999999999999999,
-                "font":
-                {
-                    "face": "CaskaydiaCove NF"
-                },
-                "useAcrylic": true
+                "hidden": false
             },
             {
                 // Make changes here to the cmd.exe profile.
@@ -63,15 +61,8 @@
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl",
-                "acrylicOpacity": 0.85999999999999999,
-                "cursorShape": "vintage",
-                "font":
-                {
-                    "face": "CaskaydiaCove NF"
-                },
                 "hidden": false,
-                "startingDirectory": "//wsl$/Ubuntu/home/timj/",
-                "useAcrylic": true
+                "startingDirectory": "//wsl$/Ubuntu/home/timj/"
             }
         ]
     },
