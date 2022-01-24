@@ -72,7 +72,7 @@ ZSH_THEME="mytheme"
 # Add wisely, as too many plugins slow down shell startup.
 # Commented plugins require manual install
 plugins=(
-  sudo web-search tmux dotenv 
+  sudo web-search dotenv 
   copydir copyfile copybuffer 
   history dirhistory 
   colorize colored-man-pages
@@ -83,7 +83,7 @@ plugins=(
   brew 
   vscode 
   python pip rust scala ruby gradle
-  # zsh-autosuggestions zsh-syntax-highlighting
+  # zsh-autosuggestions zsh-syntax-highlighting tmux
 )
 
 source $ZSH/oh-my-zsh.sh
