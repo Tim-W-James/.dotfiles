@@ -79,7 +79,7 @@ plugins=(
   git gh 
   nvm node npm 
   aws 
-  docker kubectl jsontools
+  docker docker-compose kubectl jsontools
   brew 
   vscode 
   python pip rust scala ruby gradle
