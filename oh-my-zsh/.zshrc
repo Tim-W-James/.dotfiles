@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation (may need to be modified depending on username).
-export ZSH="/home/twj/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -83,7 +83,8 @@ plugins=(
   brew 
   vscode 
   python pip rust scala ruby gradle
-  # zsh-autosuggestions zsh-syntax-highlighting tmux
+  # zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete
+  # tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -113,6 +114,10 @@ if [ -x "$(command -v colorls)" ]; then
     alias la="colorls -al"
 fi
 
+if [ -x "$(command -v colorls)" ]; then
+    alias dw="watch \"docker ps --format \\\"table {{.Names}}\t{{.Status}}\\\" -a\""
+fi
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -137,7 +142,9 @@ alias get-ip="hostname -I"
 
 # Use oh-my-posh (adjust theme name as required):
 # eval "$(oh-my-posh --init --shell zsh --config ~/.mytheme.omp.json)"
-# source /home/twj/.oh-my-zsh/custom/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# autocomplete config
+# skip_global_compinit=1
 
 # auto complete colors
 # zstyle ':completion:*:default' list-colors \
