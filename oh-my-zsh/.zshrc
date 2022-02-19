@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation (may need to be modified depending on username).
-export ZSH="/home/timja/.oh-my-zsh"
+export ZSH="/home/twj/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -24,7 +24,7 @@ ZSH_THEME="mytheme"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
+zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
@@ -93,15 +93,14 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-export EDITOR='code'
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='code'
+fi
 
 export ZSH_DOTENV_PROMPT=false
 
@@ -138,3 +137,11 @@ alias get-ip="hostname -I"
 
 # Use oh-my-posh (adjust theme name as required):
 # eval "$(oh-my-posh --init --shell zsh --config ~/.mytheme.omp.json)"
+# source /home/twj/.oh-my-zsh/custom/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# auto complete colors
+# zstyle ':completion:*:default' list-colors \
+#   "ow=30;43"
+
+# ls colors
+eval "$(dircolors ~/.dircolors)";
