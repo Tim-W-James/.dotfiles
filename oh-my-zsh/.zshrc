@@ -73,7 +73,7 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # Commented plugins require manual install
 plugins=(
   sudo web-search dotenv 
-  copydir copyfile copybuffer 
+  copypath copyfile copybuffer 
   history dirhistory 
   colorize colored-man-pages
   git gh 
