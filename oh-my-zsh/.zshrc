@@ -85,6 +85,7 @@ plugins=(
   python pip rust scala ruby gradle
   # zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete
   # tmux
+  # multipass
 )
 
 source $ZSH/oh-my-zsh.sh
