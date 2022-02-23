@@ -146,7 +146,7 @@ alias get-ip="hostname -I"
 # eval "$(oh-my-posh --init --shell zsh --config ~/.mytheme.omp.json)"
 
 # autocomplete config
-# skip_global_compinit=1
+# skip_global_compinit=1 # might be required on a linux machine
 
 # auto complete colors
 # zstyle ':completion:*:default' list-colors \
