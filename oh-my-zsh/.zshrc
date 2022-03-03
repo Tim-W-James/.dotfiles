@@ -116,7 +116,7 @@ if [ -x "$(command -v colorls)" ]; then
     alias la="colorls -al"
 fi
 
-if [ -x "$(command -v colorls)" ]; then
+if [ -x "$(command -v docker)" ]; then
     alias dw="watch \"docker ps --format \\\"table {{.Names}}\t{{.Status}}\\\" -a\""
 fi
 
