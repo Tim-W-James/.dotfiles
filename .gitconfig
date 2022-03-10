@@ -28,10 +28,12 @@
   st = status -sb
   unstage = reset HEAD
   uncommit = reset --soft HEAD^
+	dsf = diff --color
 [init]
   defaultBranch = main
 [core]
   editor = code --wait
+	# pager = diff-so-fancy | less --tabs=4 -RFX
 [push]
   default = current
 [credential]
