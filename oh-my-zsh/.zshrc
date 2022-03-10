@@ -72,8 +72,9 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # Commented plugins require manual install
+# https://github.com/unixorn/awesome-zsh-plugins#plugins
 plugins=(
-  sudo web-search dotenv 
+  sudo web-search dotenv command-not-found magic-enter
   copypath copyfile copybuffer 
   history dirhistory 
   colorize colored-man-pages
@@ -109,6 +110,15 @@ export ZSH_DOTENV_PROMPT=false
 
 # store environment variables here - must not be empty
 export $(cat ~/.my_env)
+
+# autosuggestion fixes
+# ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste up-line-or-search down-line-or-search expand-or-complete accept-line push-line-or-edit)
+
+# magic enter
+MAGIC_ENTER_GIT_COMMAND='git status -sb .'
+MAGIC_ENTER_OTHER_COMMAND='ls -la .'
+
+# eval $(thefuck --alias wtf)
 
 # requires colorls to be installed: https://github.com/athityakumar/colorls#installation
 if [ -x "$(command -v colorls)" ]; then
@@ -154,3 +164,6 @@ alias get-ip="hostname -I"
 
 # ls colors
 eval "$(dircolors ~/.dircolors)";
+
+# keybinds
+bindkey '^H' backward-kill-word
