@@ -48,7 +48,7 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true" # ! not compatable with zsh-autocomplete
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -86,6 +86,7 @@ plugins=(
   vscode 
   python pip rust scala ruby gradle
   # zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete
+  # fzf zsh-z
   # tmux
   # multipass
 )
@@ -99,35 +100,17 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+# =================
+# preferred editors
+# =================
+
+alias -s {cs,ts,html,json,xml,md}=code
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='code'
-fi
-
-export ZSH_DOTENV_PROMPT=false
-
-# store environment variables here - must not be empty
-export $(cat ~/.my_env)
-
-# autosuggestion fixes
-# ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste up-line-or-search down-line-or-search expand-or-complete accept-line push-line-or-edit)
-
-# magic enter
-MAGIC_ENTER_GIT_COMMAND='git status -sb .'
-MAGIC_ENTER_OTHER_COMMAND='ls -la .'
-
-# eval $(thefuck --alias wtf)
-
-# requires colorls to be installed: https://github.com/athityakumar/colorls#installation
-if [ -x "$(command -v colorls)" ]; then
-    alias ls="colorls"
-    alias la="colorls -al"
-fi
-
-if [ -x "$(command -v docker)" ]; then
-    alias dw="watch \"docker ps --format \\\"table {{.Names}}\t{{.Status}}\\\" -a\""
 fi
 
 # Compilation flags
@@ -141,13 +124,12 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias python="python3"
+# ! defined in ~/.oh-my-zsh/custom/aliases.zsh
 
-alias get-ports="netstat -tulnp | grep LISTEN"
-alias get-router="ip route | grep default"
-alias get-ip="hostname -I"
+# ============
+# auto install
+# ============
 
-# Auto install nvm:
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -155,8 +137,35 @@ alias get-ip="hostname -I"
 # Use oh-my-posh (adjust theme name as required):
 # eval "$(oh-my-posh --init --shell zsh --config ~/.mytheme.omp.json)"
 
-# autocomplete config
+# store environment variables here - must not be empty
+export $(cat ~/.my_env)
+
+# ====================
+# plugin configuration
+# ====================
+
+export ZSH_DOTENV_PROMPT=false
+
+# autosuggestion fixes
+# ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste up-line-or-search down-line-or-search expand-or-complete accept-line push-line-or-edit)
+
+# magic enter
+export MAGIC_ENTER_GIT_COMMAND='git status -sb .'
+export MAGIC_ENTER_OTHER_COMMAND='ls -la .'
+
+# https://github.com/nvbn/thefuck
+# eval $(thefuck --alias wtf)
+
+# zsh-autocomplete config https://github.com/marlonrichert/zsh-autocomplete/blob/main/.zshrc
 # skip_global_compinit=1 # might be required on a linux machine
+# zstyle ':autocomplete:*' list-lines 7
+# zstyle ':autocomplete:*' widget-style menu-select
+# zle -A {.,}history-incremental-search-forward
+# zle -A {.,}history-incremental-search-backward
+# requires fzf to be installed
+# if [ -x "$(command -v fzf)" ]; then
+#   zstyle ':autocomplete:*' fzf-completion yes
+# fi
 
 # auto complete colors
 # zstyle ':completion:*:default' list-colors \
@@ -165,5 +174,16 @@ alias get-ip="hostname -I"
 # ls colors
 eval "$(dircolors ~/.dircolors)";
 
+# ========
 # keybinds
+# ========
+
 bindkey '^H' backward-kill-word
+
+# override zsh-autocomplete
+# bindkey '\e[A' up-line-or-history
+# bindkey '\eOA' up-line-or-history
+# bindkey '\e[B' down-line-or-history
+# bindkey '\eOB' down-line-or-history
+# bindkey -M menuselect '\r' accept-line
+# bindkey '\0' set-mark-command
