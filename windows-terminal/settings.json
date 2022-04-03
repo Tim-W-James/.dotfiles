@@ -29,7 +29,7 @@
   "profiles": {
     "defaults": {
       // Put settings here that you want to apply to all profiles.
-      "opacity": 0.85,
+      "acrylicOpacity": 0.85,
       "useAcrylic": true,
       "bellStyle": "visual",
       "cursorShape": "vintage",

@@ -90,3 +90,8 @@ fi
 if [ -x "$(command -v docker)" ]; then
     alias dw="watch \"docker ps --format \\\"table {{.Names}}\t{{.Status}}\\\" -a\""
 fi
+
+# ! WSL2 only, set username
+if grep -q Microsoft /proc/version; then
+  alias cd-windows="cd \"/mnt/c/Users/timja/Documents/\""
+fi
