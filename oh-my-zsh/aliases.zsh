@@ -59,6 +59,7 @@ decompress() {
 # search and use bat as a previewer
 if [[ -x "$(command -v fzf)" ]] && [[ -x "$(command -v bat)" ]]; then
   alias fp="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+  alias supersearch=fp
 fi
 
 # base64 -> jwt (requires jq: sudo apt-get install jq)
@@ -92,6 +93,4 @@ if [ -x "$(command -v docker)" ]; then
 fi
 
 # ! WSL2 only, set username
-if grep -q Microsoft /proc/version; then
-  alias cd-windows="cd \"/mnt/c/Users/timja/Documents/\""
-fi
+# alias cd-windows="cd \"/mnt/c/Users/twj/Documents/\""
