@@ -104,13 +104,12 @@ export LANG=en_US.UTF-8
 # preferred editors
 # =================
 
-alias -s {cs,ts,html,json,xml,md}=code
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='code'
+  alias -s {cs,ts,html,json,xml,md}=code
 fi
 
 # Compilation flags
@@ -146,6 +145,9 @@ export $(cat ~/.my_env)
 
 export ZSH_DOTENV_PROMPT=false
 
+# fzf
+# export FZF_BASE=/home/linuxbrew/.linuxbrew/opt/fzf
+
 # autosuggestion fixes
 # ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste up-line-or-search down-line-or-search expand-or-complete accept-line push-line-or-edit)
 
@@ -179,11 +181,11 @@ eval "$(dircolors ~/.dircolors)";
 # ========
 
 bindkey '^H' backward-kill-word
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\eOA' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
+bindkey '\eOB' history-beginning-search-forward
 
 # override zsh-autocomplete
-# bindkey '\e[A' up-line-or-history
-# bindkey '\eOA' up-line-or-history
-# bindkey '\e[B' down-line-or-history
-# bindkey '\eOB' down-line-or-history
 # bindkey -M menuselect '\r' accept-line
 # bindkey '\0' set-mark-command
