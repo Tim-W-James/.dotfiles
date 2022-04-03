@@ -18,6 +18,11 @@ alias refreshenv="source $HOME/.zshrc"
 # misc
 alias export-env="export \$(cat .env)"
 
+mkdircd() {
+  mkdir $1
+  cd $1
+}
+
 # backup file
 bak() {
   cp $1{,.bak}
@@ -81,10 +86,17 @@ if [ -x "$(command -v jq)" ]; then
   alias jwtp="decode_jwt 2"
 fi
 
-# color ls: https://github.com/athityakumar/colorls#installation
+# colorls: https://github.com/athityakumar/colorls#installation
 if [ -x "$(command -v colorls)" ]; then
     alias ls="colorls"
     alias la="colorls -al"
+fi
+
+# diff-so-fancy: https://github.com/so-fancy/diff-so-fancy#install
+if [ -x "$(command -v diff-so-fancy)" ]; then
+  diffs() {
+    diff -u $1 $2 | diff-so-fancy
+  }
 fi
 
 # docker
