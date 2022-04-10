@@ -85,8 +85,8 @@ plugins=(
   brew 
   vscode 
   python pip rust scala ruby gradle
+  # fzf fzf-tab zsh-z
   # zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete
-  # fzf zsh-z
   # tmux
   # multipass
 )
@@ -164,15 +164,14 @@ fi
 # eval $(thefuck --alias wtf)
 
 # zsh-autocomplete config https://github.com/marlonrichert/zsh-autocomplete/blob/main/.zshrc
-# skip_global_compinit=1 # might be required on a linux machine
 # zstyle ':autocomplete:*' list-lines 7
 # zstyle ':autocomplete:*' widget-style menu-select
 # zle -A {.,}history-incremental-search-forward
 # zle -A {.,}history-incremental-search-backward
 # requires fzf to be installed
-# if [ -x "$(command -v fzf)" ]; then
-#   zstyle ':autocomplete:*' fzf-completion yes
-# fi
+# style ':autocomplete:*' fzf-completion yes
+# requires z to be installed
+# zstyle ':autocomplete:*' recent-dirs zsh-z
 
 # auto complete colors
 # zstyle ':completion:*:default' list-colors \
