@@ -1,10 +1,15 @@
-# compilers, repl, etc.
-# alias python="python3"
+# alias to avoid making mistakes:
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
 
 # networking
 alias get-ports="netstat -tulnp | grep LISTEN"
 alias get-router="ip route | grep default"
 alias get-ip="hostname -I"
+
+# compilers, repl, etc.
+# alias python="python3"
 
 # directories
 # alias goto-dev="cd ~/dev/"
@@ -117,7 +122,7 @@ fi
 
 # docker
 if [ -x "$(command -v docker)" ]; then
-    alias dw="watch \"docker ps --format \\\"table {{.Names}}\t{{.Status}}\\\" -a\""
+  alias dw="watch \"docker ps --format \\\"table {{.Names}}\t{{.Status}}\\\" -a\""
 fi
 
 if [[ -x "$(command -v fzf)" ]] && [[ -x "$(command -v docker)" ]]; then
