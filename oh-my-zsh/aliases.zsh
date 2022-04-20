@@ -31,6 +31,7 @@ path-add() {
   export PATH=$PATH:$1
 }
 
+# alternatively, use the 'take' command
 mkdircd() {
   mkdir $1
   cd $1

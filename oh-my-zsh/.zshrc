@@ -85,7 +85,9 @@ plugins=(
   brew 
   vscode 
   python pip rust scala ruby gradle
-  # fzf fzf-tab zsh-z
+  # fzf 
+  # fzf-tab # ! not compatible with zsh-autocomplete 
+  # zsh-z
   # zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete
   # tmux
   # multipass
@@ -125,14 +127,6 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # ! defined in ~/.oh-my-zsh/custom/aliases.zsh
 
-# ============
-# auto install
-# ============
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # Use oh-my-posh (adjust theme name as required):
 # eval "$(oh-my-posh --init --shell zsh --config ~/.mytheme.omp.json)"
 
@@ -162,6 +156,13 @@ fi
 
 # https://github.com/nvbn/thefuck
 # eval $(thefuck --alias wtf)
+
+# completion config
+zstyle ':completion:*' file-sort access
+# workaround for "do you wish to see all x possibilities" prompt eating input
+zstyle ':completion:*' menu select=long
+# fuzzy matching for completions
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # zsh-autocomplete config https://github.com/marlonrichert/zsh-autocomplete/blob/main/.zshrc
 # zstyle ':autocomplete:*' list-lines 7
