@@ -1,38 +1,176 @@
 {
-    "liveServer.settings.donotShowInfoMsg": true,
-    "explorer.confirmDragAndDrop": false,
-    "git.enableSmartCommit": true,
-    "redhat.telemetry.enabled": true,
-    "sync.gist": "8908c87137db286c23cfdd849d97fa50",
-    "workbench.iconTheme": "material-icon-theme",
-    "security.workspace.trust.untrustedFiles": "open",
-    "workbench.colorTheme": "Visual Studio 2019 Dark",
-    "gitlens.hovers.currentLine.over": "line",
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "editor.tabSize": 2,
-    "editor.wordWrap": "on",
-    "cSpell.ignoreWords": [
-        "Nums",
-        "Vite",
-        "behaviour",
-        "parameterless",
-        "todos"
-    ],
-    "terminal.integrated.fontFamily": "CaskaydiaCove NF",
-    "emmet.includeLanguages": {
-        "javascript": "html"
+  "liveServer.settings.donotShowInfoMsg": true,
+  "explorer.confirmDragAndDrop": false,
+  "git.enableSmartCommit": false,
+  "redhat.telemetry.enabled": true,
+  "sync.gist": "8908c87137db286c23cfdd849d97fa50",
+  "workbench.iconTheme": "material-icon-theme",
+  "security.workspace.trust.untrustedFiles": "open",
+  "gitlens.hovers.currentLine.over": "line",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "editor.tabSize": 2,
+  "cSpell.ignoreWords": ["Nums", "Vite", "behaviour", "parameterless", "todos"],
+  "emmet.includeLanguages": {
+    "javascript": "html"
+  },
+  "liveServer.settings.donotVerifyTags": true,
+  "workbench.startupEditor": "none",
+  "explorer.confirmDelete": false,
+  "gitlens.advanced.messages": {
+    "suppressGitMissingWarning": true
+  },
+  "git.confirmSync": false,
+  "terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
+  "editor.cursorBlinking": "phase",
+  "editor.cursorSmoothCaretAnimation": true,
+  "terminal.integrated.fontFamily": "CaskaydiaCove NF",
+  "settingsSync.ignoredSettings": [
+    "terminal.integrated.fontFamily",
+    "vs-kubernetes"
+  ],
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "wrap-console-log.format.wrap.prefixString": "$func(\"$var:\", $var);",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "workbench.productIconTheme": "material-product-icons",
+  "json.schemas": [],
+  "editor.rulers": [80],
+  "workbench.colorCustomizations": {
+    "editorRuler.foreground": "#491f1f"
+  },
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "yaml.customTags": [
+    "!And",
+    "!And sequence",
+    "!If",
+    "!If sequence",
+    "!Not",
+    "!Not sequence",
+    "!Equals",
+    "!Equals sequence",
+    "!Or",
+    "!Or sequence",
+    "!FindInMap",
+    "!FindInMap sequence",
+    "!Base64",
+    "!Join",
+    "!Join sequence",
+    "!Cidr",
+    "!Ref",
+    "!Sub",
+    "!Sub sequence",
+    "!GetAtt",
+    "!GetAZs",
+    "!ImportValue",
+    "!ImportValue sequence",
+    "!Select",
+    "!Select sequence",
+    "!Split",
+    "!Split sequence"
+  ],
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "bash"
     },
-    "liveServer.settings.donotVerifyTags": true,
-    "workbench.startupEditor": "none",
-    "explorer.confirmDelete": false,
-    "gitlens.advanced.messages": {
-        "suppressGitMissingWarning": true
+    "zsh": {
+      "path": "/usr/bin/zsh"
+    }
+  },
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "editor.wordWrap": "on",
+  "editor.inlineSuggest.enabled": true,
+  "[xml]": {
+    "editor.defaultFormatter": "DotJoshJohnson.xml"
+  },
+  "prettier.trailingComma": "all",
+  "hediet.vscode-drawio.theme": "atlas",
+  "markdownlint.config": {
+    "MD001": false,
+    "MD026": false,
+    "MD033": false,
+    "MD041": false
+  },
+  "bookmarks.useWorkaroundForFormatters": true,
+  "cSpell.userWords": [
+    "keybinds"
+  ],
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": true,
+    "plaintext": false,
+    "markdown": true
+  },
+  "settingsSync.keybindingsPerPlatform": false,
+  "better-comments.tags": [
+    {
+      "tag": "!",
+      "color": "#FF2D00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
     },
-    "cSpell.enabled": false,
-    "vsicons.dontShowNewVersionMessage": true,
-    "git.confirmSync": false,
-    "terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
-    "editor.cursorBlinking": "phase",
-    "editor.cursorSmoothCaretAnimation": true
+    {
+      "tag": "?",
+      "color": "#3498DB",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "//",
+      "color": "#474747",
+      "strikethrough": true,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "todo",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "fixme",
+      "color": "#FF6200",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "*",
+      "color": "#98C379",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "note",
+      "color": "#345bdb",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    }
+  ],
+  "cSpell.enabled": false,
+  "markdown.preview.typographer": true,
+  "errorLens.delay": 5000,
 }

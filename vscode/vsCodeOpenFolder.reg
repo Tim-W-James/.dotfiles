@@ -1,3 +1,4 @@
+; TODO change the user
 Windows Registry Editor Version 5.00
 ; Open files
 [HKEY_CLASSES_ROOT\*\shell\Open with VS Code]

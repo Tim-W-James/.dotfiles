@@ -1,4 +1,5 @@
 [user]
+  # TODO change the name and email
   name = Tim W James
   email = 38764646+Tim-W-James@users.noreply.github.com
 [filter "lfs"]
@@ -59,7 +60,7 @@
   default = current
 [credential]
   helper = store
-# requires diff-so-fancy plugin: brew install diff-so-fancy
+# ! the below requires diff-so-fancy plugin: brew install diff-so-fancy
 # [interactive]
 #   diffFilter = diff-so-fancy --patch
 # [color]

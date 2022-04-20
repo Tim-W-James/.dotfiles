@@ -239,5 +239,6 @@ if [[ -x "$(command -v kubectl)" ]] && [[ -x "$(command -v fzf)" ]]; then
 fi
 
 
-# ! WSL2 only, set username
+# ! WSL2 only
+# TODO set username
 # alias cd-windows="cd \"/mnt/c/Users/twj/Documents/\""

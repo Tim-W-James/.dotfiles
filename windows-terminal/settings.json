@@ -60,6 +60,7 @@
         "name": "Ubuntu",
         "source": "Windows.Terminal.Wsl",
         "hidden": false,
+        // TODO change the user
         "startingDirectory": "//wsl$/Ubuntu/home/twj/"
       }
     ]
