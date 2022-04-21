@@ -1,4 +1,4 @@
-# misc
+# general
 alias help="man"
 alias t="tail -f"
 alias ff="find . -type f -name"
