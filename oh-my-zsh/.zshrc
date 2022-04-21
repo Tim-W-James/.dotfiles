@@ -75,22 +75,24 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # https://github.com/unixorn/awesome-zsh-plugins#plugins
 plugins=(
   sudo web-search dotenv command-not-found magic-enter
-  copypath copyfile copybuffer 
+  copypath copyfile copybuffer jsontools aliases
   history dirhistory 
   colorize colored-man-pages
   git gh 
-  nvm node npm 
-  aws 
-  docker docker-compose kubectl jsontools
-  brew 
-  vscode 
-  python pip rust scala ruby gradle
-  # fzf 
-  # fzf-tab # ! not compatible with zsh-autocomplete 
-  # zsh-z
-  # zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete
+  # nvm node npm 
+  # aws 
+  # docker docker-compose kubectl
+  # brew 
+  # vscode 
+  # python pip rust scala sbt ruby gradle
   # tmux
   # multipass
+  # minikube
+  # lpass
+  # zsh-z
+  # fzf 
+  # fzf-tab # ! not compatible with zsh-autocomplete 
+  # zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -107,12 +109,14 @@ export LANG=en_US.UTF-8
 # =================
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='code'
-  alias -s {cs,ts,html,json,xml,md}=code
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='code'
+#   alias -s {cs,ts,html,json,xml,md}=code
+# fi
+# Or just use vim for everything
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -147,8 +151,8 @@ export ZSH_DOTENV_PROMPT=false
 
 # magic enter
 if [ -x "$(command -v colorls)" ]; then
-  export MAGIC_ENTER_OTHER_COMMAND='colorls -Al .'
-  export MAGIC_ENTER_GIT_COMMAND='colorls -Al --gs .'
+  export MAGIC_ENTER_OTHER_COMMAND='colorls -Al --group-directories-first .'
+  export MAGIC_ENTER_GIT_COMMAND='colorls -Al --gs --group-directories-first .'
 else
   export MAGIC_ENTER_OTHER_COMMAND='ls -la .'
   export MAGIC_ENTER_GIT_COMMAND='git status -sb .'

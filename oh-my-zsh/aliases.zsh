@@ -1,3 +1,13 @@
+# misc
+alias help="man"
+alias t="tail -f"
+alias ff="find . -type f -name"
+(( $+commands[fd] )) || alias fd='find . -type d -name'
+alias fd="find . -type d -name"
+alias grep="grep --color"
+alias sgrep="grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS}"
+alias processes="ps -f"
+
 # alias to avoid making mistakes:
 alias rm='rm -i'
 alias cp='cp -i'
@@ -15,7 +25,7 @@ alias get-ip="hostname -I"
 # alias goto-dev="cd ~/dev/"
 
 # zsh
-alias zsh-edit="$EDITOR $HOME/.zshrc"
+alias zshrc="${=EDITOR} ~/.zshrc"
 alias refreshenv="source $HOME/.zshrc"
 
 # git aliases in ~/.gitconfig
@@ -23,10 +33,8 @@ if [ -x "$(command -v fzf)" ]; then
   alias commits="git log --oneline | fzf --preview 'git show --name-only {1}'"
 fi
 
-# env
+# environment
 alias export-env="export \$(cat .env)"
-
-# add to path
 path-add() {
   export PATH=$PATH:$1
 }
@@ -53,11 +61,13 @@ claim() {
 }
 
 # file size
+alias size-file-list="du -d 1 -ah | sort -h -r"
 file-size() {
   du -h $1
 }
 
 # directory size
+alias size-dir-list="du -d 1 -h | sort -h -r"
 dir-size() {
   du -hs $1
 }
@@ -110,8 +120,9 @@ fi
 
 # colorls: https://github.com/athityakumar/colorls#installation
 if [ -x "$(command -v colorls)" ]; then
-    alias ls="colorls"
-    alias la="colorls -al"
+  alias ls="colorls --group-directories-first"
+  alias la="colorls -Al --gs --group-directories-first"
+  alias lt="colorls -Al --tree=3 --gs --group-directories-first"
 fi
 
 # diff-so-fancy: https://github.com/so-fancy/diff-so-fancy#install
@@ -123,7 +134,8 @@ fi
 
 # docker
 if [ -x "$(command -v docker)" ]; then
-  alias dw="watch \"docker ps --format \\\"table {{.Names}}\t{{.Status}}\\\" -a\""
+  alias dw="watch \"docker ps --format \\\"table {{.Names}}\t{{.Status}}\\\"\""
+  alias dwa="watch \"docker ps --format \\\"table {{.Names}}\t{{.Status}}\\\" -a\""
 fi
 
 if [[ -x "$(command -v fzf)" ]] && [[ -x "$(command -v docker)" ]]; then
@@ -239,6 +251,11 @@ if [[ -x "$(command -v kubectl)" ]] && [[ -x "$(command -v fzf)" ]]; then
   }
 fi
 
+# browser
+if [[ -n "$BROWSER" ]]; then
+  _browser_fts=(htm html de org net com at cx nl se dk)
+  for ft in $_browser_fts; do alias -s $ft='$BROWSER'; done
+fi
 
 # ! WSL2 only
 # TODO set username
