@@ -38,7 +38,6 @@
   ac = commit -am
   acp = "!f() { git add -A && git commit -m \"$@\" && git push; }; f"
   co = checkout
-  pbranch = checkout -
   main = !git checkout main && git fetch
   master = !git checkout master && git fetch
   pull-force = !git discard && git pull
