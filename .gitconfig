@@ -50,6 +50,7 @@
   repo = r
   fresh = reset --hard
   fresh-clean = !git reset --hard && git clean -fd
+  init-remote = "!f() { git init && git add . && git commit --allow-empty -m \"Initial commit\" && git branch -M main && git remote add origin \"$@\" && git push  -u origin main; }; f"
 [init]
   defaultBranch = main
 [core]
