@@ -6,7 +6,6 @@
   "sync.gist": "8908c87137db286c23cfdd849d97fa50",
   "workbench.iconTheme": "material-icon-theme",
   "security.workspace.trust.untrustedFiles": "open",
-  "gitlens.hovers.currentLine.over": "line",
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "editor.tabSize": 2,
@@ -27,7 +26,8 @@
   "terminal.integrated.fontFamily": "CaskaydiaCove NF",
   "settingsSync.ignoredSettings": [
     "terminal.integrated.fontFamily",
-    "vs-kubernetes"
+    "vs-kubernetes",
+    "editor.fontFamily"
   ],
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -36,7 +36,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "workbench.productIconTheme": "material-product-icons",
   "json.schemas": [],
-  "editor.rulers": [80],
+  "editor.rulers": [80,120],
   "workbench.colorCustomizations": {
     "editorRuler.foreground": "#491f1f"
   },
@@ -96,7 +96,14 @@
   },
   "bookmarks.useWorkaroundForFormatters": true,
   "cSpell.userWords": [
-    "keybinds"
+    "apiserver",
+    "dtrack",
+    "endregion",
+    "exphbs",
+    "keybinds",
+    "kompose",
+    "kubernetes",
+    "minio"
   ],
   "github.copilot.enable": {
     "*": true,
@@ -170,7 +177,23 @@
       "italic": false
     }
   ],
-  "cSpell.enabled": false,
   "markdown.preview.typographer": true,
   "errorLens.delay": 5000,
+  "errorLens.enabledDiagnosticLevels": ["error"],
+  "window.newWindowDimensions": "maximized",
+  "gitlens.currentLine.enabled": false,
+  "errorLens.scrollbarHackEnabled": true,
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "CaskaydiaCove NF",
+  "window.title": "${dirty}${activeEditorShort}${separator}${rootName}",
+  "gitlens.codeLens.enabled": false,
+  "[handlebars]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "cSpell.enabled": false,
+  "highlight-bad-chars.additionalUnicodeChars": [
+    "”",
+    "“"
+  ],
+  "git.suggestSmartCommit": false
 }
