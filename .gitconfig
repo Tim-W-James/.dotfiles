@@ -27,15 +27,13 @@
   credentials-cache = config --global credential.helper cache -timeout=3600 
   credentials-store = config --global credential.helper store
   default = "!f() { git switch $(awk -F "/" '{print $NF}' .git/refs/remotes/origin/HEAD) && git pull; }; f"
-  co = "!f() { git checkout \"$(git branch | fzf | tr -d '[:space:]')\"; }; f"
   checkout-search = co
   main = checkout main
   master = checkout master
-  br = branch
-  brn = "!f() { git default && git switch -c \"$@\"; }; f"
-  branch-new = brn
-  brd = branch -D
-  branch-del = brd
+  nb = "!f() { git default && git switch -c \"$@\"; }; f"
+  branch-new = nb
+  bd = branch -D
+  branch-del = bd
   aa = add --all
   ap = add --patch
   c = commit -m
@@ -46,12 +44,13 @@
   clr = rm -r --cached
   d = diff -w
   dc = diff --cached
-  nb = checkout -b
   r = remote -v
   repo = r
   fresh = reset --hard
   fresh-clean = !git reset --hard && git clean -fd
   init-remote = "!f() { git init && git add . && git commit --allow-empty -m \"Initial commit\" && git branch -M main && git remote add origin \"$@\" && git push-u origin main; }; f"
+  # ! requires fzf
+  # co = "!f() { git checkout \"$(git branch | fzf | tr -d '[:space:]')\"; }; f"
 [init]
   defaultBranch = main
 [core]
