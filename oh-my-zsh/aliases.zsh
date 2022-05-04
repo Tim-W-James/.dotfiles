@@ -14,9 +14,10 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 # networking
-alias get-ports="netstat -tulnp | grep LISTEN"
-alias get-router="ip route | grep default"
-alias get-ip="hostname -I"
+alias ports="netstat -tulnp | grep LISTEN"
+alias router="ip route | grep default"
+alias ip-private="hostname -I | awk {'print $1}'"
+alias ip-public="curl -4 ifconfig.co"
 
 # compilers, repl, etc.
 # alias python="python3"
@@ -34,7 +35,7 @@ if [ -x "$(command -v fzf)" ]; then
 fi
 
 # environment
-alias export-env="export \$(cat .env)"
+alias env-export="export \$(cat .env)"
 path-add() {
   export PATH=$PATH:$1
 }
