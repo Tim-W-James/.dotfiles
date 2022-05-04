@@ -48,7 +48,7 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true" # ! not compatable with zsh-autocomplete
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -76,7 +76,7 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 plugins=(
   sudo web-search dotenv command-not-found magic-enter
   copypath copyfile copybuffer jsontools aliases
-  history dirhistory 
+  history dirhistory last-working-dir
   colorize colored-man-pages
   git gh 
   # nvm node npm 
@@ -84,8 +84,9 @@ plugins=(
   # docker docker-compose kubectl
   # brew 
   # vscode 
-  # python pip rust scala sbt ruby gradle
+  # python pip rust scala sbt ruby gem gradle
   # tmux
+  # httpie
   # multipass
   # minikube
   # lpass
@@ -94,6 +95,9 @@ plugins=(
   # fzf-tab # ! not compatible with zsh-autocomplete 
   # zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete
 )
+
+# required by plugins
+# export FZF_BASE=/home/linuxbrew/.linuxbrew/opt/fzf/shell
 
 source $ZSH/oh-my-zsh.sh
 
