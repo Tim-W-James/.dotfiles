@@ -351,6 +351,7 @@
     '(|/*)(I|i)mages(|/*)'     IMAGES   ''
     '(|/*)(P|p)hotos(|/*)'     PHOTOS   ''
     '(|/*)(P|p)ictures(|/*)'   PICS     ''
+    '/mnt/c(|/*)'              WSL      ''
     '(|/*)(W|w)ork(|/*)'       WORK     ''
     '(|/*)(D|d)ev(|/*)'        DEV      ''
     '(|/*)(D|d)ownloads(|/*)'  DL       ''
@@ -368,6 +369,7 @@
   typeset -g POWERLEVEL9K_DIR_DEV_VISUAL_IDENTIFIER_EXPANSION=''
   typeset -g POWERLEVEL9K_DIR_DL_VISUAL_IDENTIFIER_EXPANSION=''
   typeset -g POWERLEVEL9K_DIR_DOC_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_DIR_WSL_VISUAL_IDENTIFIER_EXPANSION=''
   typeset -g POWERLEVEL9K_DIR_HOME_VISUAL_IDENTIFIER_EXPANSION=''
   typeset -g POWERLEVEL9K_DIR_DEFAULT_VISUAL_IDENTIFIER_EXPANSION=''
 
