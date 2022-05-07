@@ -16,7 +16,7 @@ if [ -x "$(command -v npm)" ]; then
   npm i -g @types/node;
   npm i -g how-2;
   npm i -g create-vite;
-
+  npm i -g create-react-app;
 else
   echo "npm not found";
 fi
