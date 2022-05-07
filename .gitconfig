@@ -59,7 +59,7 @@
 [push]
   default = current
 [credential]
-  helper = store
+  helper = store # ! stores as plaintext - better to use SSH instead: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
 # ! the below requires diff-so-fancy plugin: brew install diff-so-fancy
 # [interactive]
 #   diffFilter = diff-so-fancy --patch
