@@ -15,6 +15,7 @@ if [ -x "$(command -v npm)" ]; then
   npm i -g ts-node;
   npm i -g @types/node;
   npm i -g how-2;
+  npm i -g create-vite;
 
 else
   echo "npm not found";
