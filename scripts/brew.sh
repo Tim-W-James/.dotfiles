@@ -9,6 +9,7 @@ if [ -x "$(command -v brew)" ]; then
   brew install glow;
   brew install fpp;
   brew install wget;
+  brew install gh;
 else
   echo "brew not found";
 fi
