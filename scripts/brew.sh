@@ -12,7 +12,7 @@ if [ -x "$(command -v brew)" ]; then
   brew install fpp;
   brew install wget;
   brew install gh;
-  brew install gping;
+  brew install orf/brew/gping;
   brew install procs;
   brew install duf;
   brew install broot;
