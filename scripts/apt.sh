@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ -x "$(command -v apt)" ]; then
   apt update
   apt install apt-transport-https ca-certificates curl software-properties-common -y;

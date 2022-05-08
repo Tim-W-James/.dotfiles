@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ -x "$(command -v npm)" ]; then
   npm i -g yarn;
   npm i -g commitizen;

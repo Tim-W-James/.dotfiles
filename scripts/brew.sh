@@ -1,5 +1,7 @@
+#!/bin/bash
 if [ -x "$(command -v brew)" ]; then
   brew update;
+  brew upgrade;
   brew install diff-so-fancy;
   brew install thefuck;
   brew install fzf;
@@ -10,6 +12,11 @@ if [ -x "$(command -v brew)" ]; then
   brew install fpp;
   brew install wget;
   brew install gh;
+  brew install gping;
+  brew install procs;
+  brew install duf;
+  brew install broot;
+  brew install dog;
 else
   echo "brew not found";
 fi
