@@ -93,6 +93,7 @@ plugins=(
   # zsh-z
   # fzf 
   # fzf-tab # ! not compatible with zsh-autocomplete 
+  # zsh-direnv # ! not compatible with dotenv
   # zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete
 )
 
@@ -151,7 +152,7 @@ export $(cat ~/.my_env)
 # plugin configuration
 # ====================
 
-export ZSH_DOTENV_PROMPT=false
+export ZSH_DOTENV_PROMPT=false # ! not compatible with dotenv
 
 # fzf
 # export FZF_BASE=/home/linuxbrew/.linuxbrew/opt/fzf
