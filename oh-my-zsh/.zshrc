@@ -78,7 +78,7 @@ plugins=(
   copypath copyfile copybuffer jsontools aliases
   history dirhistory last-working-dir
   colorize colored-man-pages
-  git gh 
+  git gh git-auto-fetch
   # nvm node npm 
   # aws 
   # docker docker-compose kubectl
@@ -153,7 +153,8 @@ export $(cat ~/.my_env)
 # plugin configuration
 # ====================
 
-export ZSH_DOTENV_PROMPT=false # ! not compatible with dotenv
+export ZSH_DOTENV_PROMPT=false # ! not compatible with direnv
+# export DIRENV_LOG_FORMAT="" # silent output
 
 # fzf
 # export FZF_BASE=/home/linuxbrew/.linuxbrew/opt/fzf
