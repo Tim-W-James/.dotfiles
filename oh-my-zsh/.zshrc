@@ -92,6 +92,7 @@ plugins=(
   # lpass
   # zsh-z
   # fzf 
+  # asdf
   # fzf-tab # ! not compatible with zsh-autocomplete 
   # zsh-direnv # ! not compatible with dotenv
   # zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete
