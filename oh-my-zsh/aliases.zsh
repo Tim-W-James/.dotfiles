@@ -64,13 +64,13 @@ claim() {
 
 # file size
 alias size-file-list="du -d 1 -ah | sort -h -r"
-file-size() {
+size-file() {
   du -h $1
 }
 
 # directory size
 alias size-dir-list="du -d 1 -h | sort -h -r"
-dir-size() {
+size-dir() {
   du -hs $1
 }
 
