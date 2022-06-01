@@ -23,6 +23,7 @@ if [ -x "$(command -v npm)" ]; then
   npm i -g nodemon
   npm i -g serve
   npm i -g https-localhost
+  npm i -g npm-check-updates
 else
   echo "npm not found"
 fi
