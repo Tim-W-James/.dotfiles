@@ -259,6 +259,12 @@ if [[ -n "$BROWSER" ]]; then
   for ft in $_browser_fts; do alias -s $ft='$BROWSER'; done
 fi
 
+# URL encoding
+if [ -x "$(command -v node)" ]; then
+  alias urlencode='node --eval "console.log(encodeURIComponent(process.argv[1]))"'
+  alias urldecode='node --eval "console.log(decodeURIComponent(process.argv[1]))"'
+fi
+
 # ! WSL2 only
 # TODO set username
 # alias cd-windows="cd \"/mnt/c/Users/twj/Documents/\""
