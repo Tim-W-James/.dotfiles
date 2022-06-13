@@ -24,6 +24,8 @@ if [ -x "$(command -v npm)" ]; then
   npm i -g serve
   npm i -g https-localhost
   npm i -g npm-check-updates
+  npm i -g sass
+  npm i -g typac
 else
   echo "npm not found"
 fi

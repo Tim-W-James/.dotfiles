@@ -82,6 +82,7 @@ plugins=(
   # nvm node npm 
   # aws 
   # docker docker-compose kubectl
+  # terraform
   # brew 
   # vscode 
   # python pip rust scala sbt ruby gem gradle
