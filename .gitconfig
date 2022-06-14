@@ -40,6 +40,7 @@
   c = commit -m
   ac = commit -am
   acp = "!f() { git commit -am \"$@\" && git push; }; f"
+  push-force = "push --force-with-lease"
   pull-force = !git discard && git pull
   pull-combine = !git pull-force && git undiscard
   clr = rm -r --cached
