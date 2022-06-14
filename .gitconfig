@@ -19,6 +19,7 @@
   camend = commit --amend -m
   amend-message = commit --amend -m
   amend-files = commit --amend --no-edit
+  ci = "!f() { git commit --allow-empty -m \"$1\"; return 1;}; f"
   discard = stash push
   undiscard = stash pop
   remote-add = remote add origin
