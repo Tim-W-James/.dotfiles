@@ -26,6 +26,7 @@ if [ -x "$(command -v npm)" ]; then
   npm i -g npm-check-updates
   npm i -g sass
   npm i -g typac
+  npm i -g netlify-cli
 else
   echo "npm not found"
 fi
