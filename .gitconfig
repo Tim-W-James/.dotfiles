@@ -62,6 +62,10 @@
   # pager = diff-so-fancy | less --tabs=4 -RFX
 [push]
   default = current
+[pull]
+	rebase = true
+[rebase]
+	autostash = true
 [credential]
   helper = store # ! stores as plaintext - better to use SSH instead: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
 # ! the below requires diff-so-fancy plugin: brew install diff-so-fancy
