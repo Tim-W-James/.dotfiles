@@ -265,6 +265,10 @@ if [ -x "$(command -v node)" ]; then
   alias urldecode='node --eval "console.log(decodeURIComponent(process.argv[1]))"'
 fi
 
+# remove node_modules
+alias node-clean="rm -rf node_modules/"
+alias node-clean-lockfile="node-clean && rm -f package-lock.json && rm -f yarn.lock && rm -f pnpm-lock.yaml"
+
 # ! WSL2 only
 # TODO set username
 # alias cd-windows="cd \"/mnt/c/Users/twj/Documents/\""
