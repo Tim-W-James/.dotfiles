@@ -399,6 +399,7 @@ set -g @plugin 'tmux-plugins/tmux-pain-control'
 set -g @plugin 'tmux-plugins/tmux-sessionist'
 set -g @plugin 'tmux-plugins/tmux-logging'
 set -g @plugin 'tmux-plugins/tmux-sidebar'
+set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'tmux-plugins/tmux-open' # ! requires xdg-open: sudo apt-get install -y xdg-utils
 set -g @plugin 'nhdaly/tmux-better-mouse-mode'
 set -g @plugin 'ChanderG/tmux-notify'
