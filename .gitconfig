@@ -36,7 +36,7 @@
   bd = branch -D
   branch-del = bd
   aa = add --all
-  ap = add --patch
+  ap = add -c 'interactive.diffFilter=less' --patch
   c = commit -m
   ac = commit -am
   acp = "!f() { git commit -am \"$@\" && git push; }; f"
