@@ -69,6 +69,7 @@
 [credential]
   helper = store # ! stores as plaintext - better to use SSH instead: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
 # ! the below requires diff-so-fancy plugin: brew install diff-so-fancy
+# ! use git version > 2.26.2
 # [interactive]
 #   diffFilter = diff-so-fancy --patch
 # [color]
@@ -86,6 +87,6 @@
 #   old = red bold
 #   new = green bold
 #   whitespace = red reverse
-# ! diff-so-fancy isn't compatible with interactive patch
+# ! diff-so-fancy isn't compatible with interactive patch, which is enabled by default in git version > 2.37
 # [add "interactive"]
 # 	useBuiltin = false
