@@ -399,7 +399,6 @@ set -g @plugin 'tmux-plugins/tmux-pain-control'
 set -g @plugin 'tmux-plugins/tmux-sessionist'
 set -g @plugin 'tmux-plugins/tmux-logging'
 set -g @plugin 'tmux-plugins/tmux-sidebar'
-set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'tmux-plugins/tmux-open' # ! requires xdg-open: sudo apt-get install -y xdg-utils
 set -g @plugin 'nhdaly/tmux-better-mouse-mode'
 set -g @plugin 'ChanderG/tmux-notify'
@@ -407,6 +406,7 @@ set -g @plugin 'schasse/tmux-jump' # ! requires ruby
 set -g @plugin 'tmux-plugins/tmux-fpp' # ! requires fpp: https://github.com/facebook/pathpicker/#homebrew
 set -g @plugin 'wfxr/tmux-fzf-url' # ! requires fzf: https://github.com/junegunn/fzf#using-homebrew
 set -g @plugin 'jaclu/tmux-menus'
+# set -g @plugin 'tmux-plugins/tmux-yank'
 
 # variables
 set -g @plugin 'tmux-plugins/tmux-cpu'
