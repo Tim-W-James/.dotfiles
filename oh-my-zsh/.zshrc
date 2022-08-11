@@ -147,9 +147,6 @@ fi
 # Use oh-my-posh (adjust theme name as required):
 # eval "$(oh-my-posh --init --shell zsh --config ~/.mytheme.omp.json)"
 
-# store environment variables here - must not be empty
-export $(cat ~/.my_env)
-
 # ====================
 # plugin configuration
 # ====================
@@ -213,9 +210,9 @@ bindkey '\eOB' history-beginning-search-forward
 # bindkey -M menuselect '\r' accept-line
 # bindkey '\0' set-mark-command
 
-# ========
+# ===============
 # auto-load nvmrc
-# ========
+# ===============
 
 # place this after nvm initialization!
 autoload -U add-zsh-hook
@@ -239,3 +236,20 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+# =========================
+# environment var overrides
+# =========================
+
+# source from file
+# allows extended syntax such as comments and variable expansion
+if [[ -f ~/globals.env ]] && [[ -s ~/globals.env ]]; then
+  set -a
+  source <((cat ~/globals.env | sed -e '/^#/d;/^\s*$/d' -e "s/'/'\\\''/g" -e "s/=\(.*\)/='\1'/g") | envsubst)
+  set +a
+fi
+
+# ================================
+# ! source additional config below
+# (p10k, fzf, etc.)
+# ================================
