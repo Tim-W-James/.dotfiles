@@ -29,6 +29,7 @@ if [ -x "$(command -v npm)" ]; then
   npm i -g netlify-cli
   npm i -g npkill
   npm i -g json-server
+  npm i -g yo
 else
   echo "npm not found"
 fi
