@@ -24,7 +24,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
-zstyle ':omz:update' mode disabled  # disable automatic updates
+zstyle ':omz:update' mode disabled # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # update manually with: omz update
@@ -79,12 +79,12 @@ plugins=(
   history dirhistory last-working-dir
   colorize colored-man-pages
   git gh git-auto-fetch
-  # nvm node npm 
-  # aws 
+  # nvm node npm
+  # aws
   # docker docker-compose kubectl
   # terraform
-  # brew 
-  # vscode 
+  # brew
+  # vscode
   # python pip rust scala sbt ruby gem gradle
   # tmux
   # httpie
@@ -92,19 +92,23 @@ plugins=(
   # minikube
   # lpass
   # zsh-z
-  # fzf 
+  # fzf
   # asdf
-  # fzf-tab # ! not compatible with zsh-autocomplete 
+  # fzf-tab # ! not compatible with zsh-autocomplete
   # zsh-direnv # ! not compatible with dotenv
   # zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete
 )
 
-# required by plugins
+# required by plugins before sourcing oh-my-zsh
 # export FZF_BASE=/home/linuxbrew/.linuxbrew/opt/fzf/shell
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# ====================
+# env vars
+# ====================
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -124,15 +128,31 @@ export EDITOR='vim'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+# golang
+if [ -d "$HOME/go" ]; then
+  GOPATH="$HOME/go"
 fi
 
+# ====
+# path
+# ====
+
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+if [ -d "$HOME/bin" ]; then
+  PATH="$HOME/bin:$PATH"
 fi
+if [ -d "$HOME/.local/bin" ]; then
+  PATH="$HOME/.local/bin:$PATH"
+fi
+
+# set PATH to include Go binaries if Go is installed
+if [ ! -z "$GOPATH" ] && [ -d "$GOPATH/bin" ]; then
+  PATH="$GOPATH/bin:$PATH"
+fi
+
+# =======
+# aliases
+# =======
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -194,7 +214,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 #   "ow=30;43"
 
 # ls colors
-eval "$(dircolors ~/.dircolors)";
+eval "$(dircolors ~/.dircolors)"
 
 # ========
 # keybinds
@@ -217,7 +237,7 @@ bindkey '\eOB' history-beginning-search-forward
 # place this after nvm initialization!
 autoload -U add-zsh-hook
 load-nvmrc() {
-  [[ -a .nvmrc ]] || return
+  [[ -e .nvmrc ]] || return
   local node_version="$(nvm version)"
   local nvmrc_path="$(nvm_find_nvmrc)"
 
