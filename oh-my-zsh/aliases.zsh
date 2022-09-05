@@ -1,14 +1,32 @@
+# ~/.oh-my-zsh/custom/aliases.zsh
+
 # general
 alias help="man"
 alias t="tail -f"
 alias ff="find . -type f -name"
-(( $+commands[fd] )) || alias fd='find . -type d -name'
+(($ + commands[fd])) || alias fd='find . -type d -name'
 alias fd="find . -type d -name"
 alias grep="grep --color"
 alias sgrep="grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS}"
 alias processes="ps -f"
 
-# alias to avoid making mistakes:
+# git
+# ! where possible, define in ~/.gitconfig
+if [[ -x "$(command -v fzf)" ]]; then
+  git-co() {
+    if [ $# -eq 0 ]; then
+      git switch $(git branch -a -vv --color=always --sort=committerdate --sort=upstream | 
+      grep -v '/HEAD\s' |  fzf --height 40% --ansi --multi --tac | sed 's/^..//' |
+      awk '{print $1}' | sed 's#^remotes/[^/]*/##')
+    else
+      git switch $1
+    fi
+  }
+else
+  alias git-co="git checkout"
+fi
+
+# alias to avoid making mistakes
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -106,12 +124,14 @@ if [ -x "$(command -v jq)" ]; then
   decode_base64_url() {
     local len=$((${#1} % 4))
     local result="$1"
-    if [ $len -eq 2 ]; then result="$1"'=='
-    elif [ $len -eq 3 ]; then result="$1"'=' 
+    if [ $len -eq 2 ]; then
+      result="$1"'=='
+    elif [ $len -eq 3 ]; then
+      result="$1"'='
     fi
     echo "$result" | tr '_-' '/+' | openssl enc -d -base64
   }
-  decode_jwt(){
+  decode_jwt() {
     decode_base64_url $(echo -n $2 | cut -d "." -f $1) | jq .
   }
   # Decode JWT header
@@ -145,15 +165,15 @@ if [[ -x "$(command -v fzf)" ]] && [[ -x "$(command -v docker)" ]]; then
 
   __docker_pre_test() {
     if [[ -z "$1" ]] && [[ $(docker ps --format '{{.Names}}') ]]; then
-      return 0;
+      return 0
     fi
 
     if [[ ! -z "$1" ]] && [[ $(docker ps -a --format '{{.Names}}') ]]; then
-      return 0;
+      return 0
     fi
 
-    echo "No containers found";
-    return 1;
+    echo "No containers found"
+    return 1
   }
 
   __docker_logs() (
@@ -162,7 +182,7 @@ if [[ -x "$(command -v fzf)" ]] && [[ -x "$(command -v docker)" ]]; then
       since="--since $1 "
     fi
 
-    local count=$(wc -l <<< $2)
+    local count=$(wc -l <<<$2)
     if [[ -z "$2" ]]; then
       return 1
     fi
@@ -184,7 +204,7 @@ if [[ -x "$(command -v fzf)" ]] && [[ -x "$(command -v docker)" ]]; then
     function _exit {
       for pid in "${allPids[@]}"; do
         # ignore if process is not alive anymore
-        kill -9 $pid > /dev/null 2> /dev/null
+        kill -9 $pid >/dev/null 2>/dev/null
       done
 
       test -e $tmpFile && rm -f $tmpFile
@@ -204,7 +224,7 @@ if [[ -x "$(command -v fzf)" ]] && [[ -x "$(command -v docker)" ]]; then
 
       allPids+=($pid)
       writeToTmpFilePids+=($pid)
-    done <<< "$2" # bash executes while loops in pipe in subshell, meaning pids will not be available outside of loop when using `echo -e "$2" | while...`
+    done <<<"$2" # bash executes while loops in pipe in subshell, meaning pids will not be available outside of loop when using `echo -e "$2" | while...`
 
     #wait for all historc logs being written into $tmpFile
     sleep 2
@@ -212,11 +232,11 @@ if [[ -x "$(command -v fzf)" ]] && [[ -x "$(command -v docker)" ]]; then
     local removeTimestamp='sed -r -u "s/((\x1b\[[0-9]{2}m){0,2}\[.*\]\x1b\[39m\x1b\[49m )[^ ]+ /\1/"'
 
     #sort historic logs
-    local numOfLines=$(wc -l < $tmpFile)
+    local numOfLines=$(wc -l <$tmpFile)
     eval "head -n $numOfLines $tmpFile | sort --stable --key=2 | $removeTimestamp"
 
     #show new logs
-    local numOfLines=$((numOfLines+1))
+    local numOfLines=$((numOfLines + 1))
     #2>/dev/null because "tail: /tmp/fzf-docker-logs: file truncated" is outputed every time $tmpFile is emptied
     eval "tail -f -n +$numOfLines $tmpFile > >($removeTimestamp) 2>/dev/null &"
     allPids+=($!)
@@ -246,7 +266,7 @@ fi
 # kubernetes
 if [[ -x "$(command -v kubectl)" ]] && [[ -x "$(command -v fzf)" ]]; then
   klogs() {
-    pod="$(kubectl get po -o wide|tail -n+2|fzf -n1 --reverse --tac --preview='kubectl logs --tail=20 --all-containers=true {1}' --preview-window=down:50% --bind=ctrl-p:toggle-preview --header="^P: Preview Logs")"
+    pod="$(kubectl get po -o wide | tail -n+2 | fzf -n1 --reverse --tac --preview='kubectl logs --tail=20 --all-containers=true {1}' --preview-window=down:50% --bind=ctrl-p:toggle-preview --header="^P: Preview Logs")"
     if [[ -n $pod ]]; then
       kubectl logs --all-containers=true $pod
     fi

@@ -1,5 +1,6 @@
 #!/bin/bash
 if [ -x "$(command -v npm)" ]; then
+  # ! add important packages to $NVM_DIR/default-packages
   npm i -g pnpm
   npm i -g yarn
   npm i -g eslint
@@ -29,7 +30,6 @@ if [ -x "$(command -v npm)" ]; then
   npm i -g netlify-cli
   npm i -g npkill
   npm i -g json-server
-  npm i -g yo
 else
   echo "npm not found"
 fi

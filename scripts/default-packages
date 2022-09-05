@@ -1,0 +1,13 @@
+# $NVM_DIR/default-packages
+
+yarn
+create-react-app
+commitizen
+eslint
+prettier
+serverless
+vtop
+tldr
+typescript
+ts-node
+nodemon
