@@ -33,6 +33,8 @@
   master = checkout master
   nb = "!f() { git default && git switch -c \"$@\"; }; f"
   branch-new = nb
+  bnc = git switch -c
+  branch-new-current = bnc
   bd = branch -D
   branch-del = bd
   aa = add --all
@@ -40,10 +42,12 @@
   c = commit -m
   ac = commit -am
   acp = "!f() { git commit -am \"$@\" && git push; }; f"
-  push-force = "push --force-with-lease"
+  po = "!f() { git push origin && git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD); }; f"
+  plo = "!f() { git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD) && git pull origin; }; f"
+  push-force = push --force-with-lease
   pull-force = !git discard && git pull
   pull-combine = !git pull-force && git undiscard
-  clr = rm -r --cached
+  untrack = rm -r --cached
   d = diff -w
   dc = diff --cached
   r = remote -v
@@ -53,6 +57,8 @@
   fresh = reset --hard
   fresh-clean = !git reset --hard && git clean -fd
   init-remote = "!f() { git init && git add . && git commit --allow-empty -m \"Initial commit\" && git branch -M main && git remote add origin \"$@\" && git push -u origin main; }; f"
+  rebase-i = rebase --interactive
+  rebase-all = rebase --interactive --root
   # complex functions defined in ~/.oh-my-zsh/custom/aliases.zsh
 [init]
   defaultBranch = main
