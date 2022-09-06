@@ -11,20 +11,7 @@ alias sgrep="grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS}"
 alias processes="ps -f"
 
 # git
-# ! where possible, define in ~/.gitconfig
-if [[ -x "$(command -v fzf)" ]]; then
-  git-co() {
-    if [ $# -eq 0 ]; then
-      git switch $(git branch -a -vv --color=always --sort=committerdate --sort=upstream | 
-      grep -v '/HEAD\s' |  fzf --height 40% --ansi --multi --tac | sed 's/^..//' |
-      awk '{print $1}' | sed 's#^remotes/[^/]*/##')
-    else
-      git switch $1
-    fi
-  }
-else
-  alias git-co="git checkout"
-fi
+# ! define in ~/.gitconfig
 
 # alias to avoid making mistakes
 alias rm='rm -i'
