@@ -28,7 +28,7 @@
   credentials-cache = config --global credential.helper cache -timeout=3600 
   credentials-store = config --global credential.helper store
   default = "!f() { git switch $(awk -F "/" '{print $NF}' .git/refs/remotes/origin/HEAD) && git pull; }; f"
-  co = "!f() { (cd ~/.dotfiles/scripts; ./git-checkout-search.sh \"$@\"); }; f"
+  co = "!f() { (__GIT_CO_DIR=$(pwd); cd ~/.dotfiles/scripts; ./git-checkout-search.sh ${__GIT_CO_DIR} \"$@\"); }; f"
   checkout-search = co
   main = checkout main
   master = checkout master
