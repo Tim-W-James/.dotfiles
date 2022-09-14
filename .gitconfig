@@ -32,7 +32,7 @@
   checkout-search = co
   main = checkout main
   master = checkout master
-  nb = "!f() { git default && git switch -c \"$@\"; }; f"
+  bn = "!f() { git default && git switch -c \"$@\"; }; f"
   branch-new = nb
   bnc = git switch -c
   branch-new-current = bnc
@@ -42,6 +42,7 @@
   ap = -c 'interactive.diffFilter=less' add --patch
   c = commit -m
   ac = commit -am
+  cp = "!f() { git commit -m \"$@\" && git push; }; f"
   acp = "!f() { git commit -am \"$@\" && git push; }; f"
   p = "!f() { git push origin && git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD); }; f"
   pl = "!f() { git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD) && git pull origin; }; f"
@@ -72,6 +73,8 @@
 	rebase = true
 [rebase]
 	autostash = true
+[add "interactive"]
+	useBuiltin = false
 [credential]
   helper = store # ! stores as plaintext - better to use SSH instead: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
 # ! the below requires diff-so-fancy plugin: brew install diff-so-fancy
