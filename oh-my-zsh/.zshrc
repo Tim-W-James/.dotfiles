@@ -257,6 +257,21 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
+# ========================
+# Terminal Specific Config
+# ========================
+
+# VSCode
+if [[ $TERM_PROGRAM == "vscode" ]]; then
+  # start a tmux session
+  if [[ $VSCODE_TERM_PROFILE == "tmux" ]]; then
+    if [ -z "$TMUX" ]; then
+      $HOME/.dotfiles/scripts/tmux-folder-session.sh
+    fi
+  fi
+fi
+
+
 # =========================
 # environment var overrides
 # =========================

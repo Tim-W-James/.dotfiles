@@ -31,9 +31,13 @@ alias ip-public="curl -4 ifconfig.co"
 # alias goto-dev="cd ~/dev/"
 
 # zsh
-alias zshrc="${EDITOR} ~/.zshrc"
-alias zsh-alias="${EDITOR} ~/.oh-my-zsh/custom/aliases.zsh"
+alias zshrc="code ~/.zshrc"
+alias zsh-alias="code ~/.oh-my-zsh/custom/aliases.zsh"
 alias refreshenv="source $HOME/.zshrc"
+
+# tmux
+alias tmain="~/.dotfiles/scripts/tmux-folder-session.sh ' main'"
+alias tmuxconf="code ~/.tmux.conf.local"
 
 # git aliases in ~/.gitconfig
 if [ -x "$(command -v fzf)" ]; then
