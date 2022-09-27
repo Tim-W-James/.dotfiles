@@ -38,6 +38,7 @@
   branch-new-current = bnc
   bd = branch -D
   branch-del = bd
+  a = add
   aa = add --all
   ap = -c 'interactive.diffFilter=less' add --patch
   c = commit -m
