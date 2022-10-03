@@ -230,10 +230,11 @@ bindkey '\eOB' history-beginning-search-forward
 # bindkey -M menuselect '\r' accept-line
 # bindkey '\0' set-mark-command
 
-# ===============
-# auto-load nvmrc
-# ===============
+# ==========
+# load tools
+# ==========
 
+# auto-load nvmrc
 # place this after nvm initialization!
 autoload -U add-zsh-hook
 load-nvmrc() {
@@ -256,6 +257,11 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+# pyenv
+if [ -x "$(command -v pyenv)" ]; then
+  eval "$(pyenv init -)"
+fi
 
 # ========================
 # Terminal Specific Config
