@@ -1,6 +1,7 @@
 # $NVM_DIR/default-packages
 
 yarn
+pnpm
 create-react-app
 commitizen
 eslint
