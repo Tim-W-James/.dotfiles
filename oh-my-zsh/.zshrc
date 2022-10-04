@@ -181,12 +181,13 @@ export ZSH_DOTENV_PROMPT=false # ! not compatible with direnv
 # ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste up-line-or-search down-line-or-search expand-or-complete accept-line push-line-or-edit)
 
 # magic enter
+alias __magic_enter_prefix='(command -v direnv 2>/dev/null 1>/dev/null && ((((direnv status | grep "Found RC allowed false") && direnv allow) 2>/dev/null 1>/dev/null) && echo "direnv allow"))'
 if [ -x "$(command -v colorls)" ]; then
-  export MAGIC_ENTER_OTHER_COMMAND='colorls -Al --group-directories-first .'
-  export MAGIC_ENTER_GIT_COMMAND='colorls -Al --gs --group-directories-first .'
+  export MAGIC_ENTER_OTHER_COMMAND='__magic_enter_prefix || colorls -Al --group-directories-first .'
+  export MAGIC_ENTER_GIT_COMMAND='__magic_enter_prefix || colorls -Al --gs --group-directories-first .'
 else
-  export MAGIC_ENTER_OTHER_COMMAND='ls -la .'
-  export MAGIC_ENTER_GIT_COMMAND='git status -sb .'
+  export MAGIC_ENTER_OTHER_COMMAND='__magic_enter_prefix || ls -la .'
+  export MAGIC_ENTER_GIT_COMMAND='__magic_enter_prefix || git status -sb .'
 fi
 
 # https://github.com/nvbn/thefuck
