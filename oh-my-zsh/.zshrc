@@ -130,7 +130,7 @@ export EDITOR='vim'
 
 # golang
 if [ -d "$HOME/go" ]; then
-  GOPATH="$HOME/go"
+  export GOPATH="$HOME/go"
 fi
 
 # ====
@@ -139,16 +139,28 @@ fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ]; then
-  PATH="$HOME/bin:$PATH"
+  export PATH="$HOME/bin:$PATH"
 fi
 if [ -d "$HOME/.local/bin" ]; then
-  PATH="$HOME/.local/bin:$PATH"
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# golang
+if [ -d "$HOME/go" ]; then
+  export GOPATH="$HOME/go"
 fi
 
 # set PATH to include Go binaries if Go is installed
 if [ ! -z "$GOPATH" ] && [ -d "$GOPATH/bin" ]; then
-  PATH="$GOPATH/bin:$PATH"
+  export PATH="$GOPATH/bin:$PATH"
+  export PATH=$PATH:/usr/local/go/bin
 fi
+
+# aws v2
+# export PATH="/usr/local/aws-cli/v2/2.7.35/bin:$PATH"
+
+# firefox developer
+# export PATH=/opt/firefox/firefox:$PATH
 
 # =======
 # aliases

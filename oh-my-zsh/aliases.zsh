@@ -39,10 +39,14 @@ alias refreshenv="source $HOME/.zshrc"
 alias tmain="~/.dotfiles/scripts/tmux-folder-session.sh ' main'"
 alias tmuxconf="code ~/.tmux.conf.local"
 
-# git aliases in ~/.gitconfig
+# git
+# ! define in ~/.gitconfig
 if [ -x "$(command -v fzf)" ]; then
   alias commits="git log --oneline | fzf --preview 'git show --name-only {1}'"
 fi
+
+# firefox developer
+alias firefox-dev="/opt/firefox/firefox"
 
 # environment
 alias env-export="export \$(cat .env)"
