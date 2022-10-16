@@ -310,6 +310,10 @@ tmux_conf_copy_to_os_clipboard=true
 # start with mouse mode enabled
 set -g mouse on
 
+# use middle mouse to paste
+unbind-key MouseDown2Pane
+bind-key -n MouseDown2Pane run "tmux set-buffer \"$(xclip -o -sel clipboard)\"; tmux paste-buffer"
+
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
 #set -g status-keys vi
@@ -373,7 +377,7 @@ set -g @plugin 'tmux-plugins/tmux-open' # ! requires xdg-open: sudo apt-get inst
 set -g @plugin 'nhdaly/tmux-better-mouse-mode'
 set -g @plugin 'ChanderG/tmux-notify'
 set -g @plugin 'schasse/tmux-jump' # ! requires ruby
-set -g @plugin 'tmux-plugins/tmux-fpp' # ! requires fpp: https://github.com/facebook/pathpicker/#homebrew
+# set -g @plugin 'tmux-plugins/tmux-fpp' # ! requires fpp: https://github.com/facebook/pathpicker/#homebrew
 set -g @plugin 'wfxr/tmux-fzf-url' # ! requires fzf: https://github.com/junegunn/fzf#using-homebrew
 set -g @plugin 'jaclu/tmux-menus'
 # set -g @plugin 'tmux-plugins/tmux-yank'
