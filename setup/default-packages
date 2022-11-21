@@ -1,13 +1,18 @@
 # $NVM_DIR/default-packages
 
 yarn
-create-react-app
-commitizen
 eslint
 prettier
 serverless
-vtop
-tldr
+terraform
+nodemon
 typescript
 ts-node
-nodemon
+create-react-app
+grunt
+bower
+netlify-cli
+commitizen
+vtop
+tldr
+npkill
