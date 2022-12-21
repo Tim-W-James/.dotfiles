@@ -114,9 +114,23 @@ if [[ -x "$(command -v fzf)" ]] && [[ -x "$(command -v bat)" ]]; then
   alias sps=supersearch
 fi
 
+# URL encoding
+if [ -x "$(command -v node)" ]; then
+  alias url_encode='node --eval "console.log(encodeURIComponent(process.argv[1]))"'
+  alias url_decode='node --eval "console.log(decodeURIComponent(process.argv[1]))"'
+fi
+
+# base64
+base64_encode() {
+  echo -n "$1" | base64
+}
+base64_decode() {
+  echo -n "$1" | base64 -d
+}
+
 # base64 -> jwt (requires jq: sudo apt-get install jq)
 if [ -x "$(command -v jq)" ]; then
-  decode_base64_url() {
+  base64_url_decode() {
     local len=$((${#1} % 4))
     local result="$1"
     if [ $len -eq 2 ]; then
@@ -127,7 +141,7 @@ if [ -x "$(command -v jq)" ]; then
     echo "$result" | tr '_-' '/+' | openssl enc -d -base64
   }
   decode_jwt() {
-    decode_base64_url $(echo -n $2 | cut -d "." -f $1) | jq .
+    base64_url_decode $(echo -n $2 | cut -d "." -f $1) | jq .
   }
   # Decode JWT header
   alias jwth="decode_jwt 1"
@@ -260,24 +274,25 @@ fi
 
 # kubernetes
 if [[ -x "$(command -v kubectl)" ]] && [[ -x "$(command -v fzf)" ]]; then
-  klogs() {
-    pod="$(kubectl get po -o wide | tail -n+2 | fzf -n1 --reverse --tac --preview='kubectl logs --tail=20 --all-containers=true {1}' --preview-window=down:50% --bind=ctrl-p:toggle-preview --header="^P: Preview Logs")"
-    if [[ -n $pod ]]; then
-      kubectl logs --all-containers=true $pod
-    fi
-  }
+  if [ -x "$(command -v fzf)" ]; then
+    klogs() {
+      pod="$(kubectl get po -o wide | tail -n+2 | fzf -n1 --reverse --tac --preview='kubectl logs --tail=20 --all-containers=true {1}' --preview-window=down:50% --bind=ctrl-p:toggle-preview --header="^P: Preview Logs")"
+      if [[ -n $pod ]]; then
+        kubectl logs --all-containers=true $pod
+      fi
+    }
+  fi
+
+  # minikube
+  if [[ -x "$(command -v minikube)" ]] && [[ -x "$(command -v ctlptl)" ]]; then
+    alias minikube-tilt="ctlptl create cluster minikube --registry=ctlptl-registry --name tilt"
+  fi
 fi
 
 # browser
 if [[ -n "$BROWSER" ]]; then
   _browser_fts=(htm html de org net com at cx nl se dk)
   for ft in $_browser_fts; do alias -s $ft='$BROWSER'; done
-fi
-
-# URL encoding
-if [ -x "$(command -v node)" ]; then
-  alias urlencode='node --eval "console.log(encodeURIComponent(process.argv[1]))"'
-  alias urldecode='node --eval "console.log(decodeURIComponent(process.argv[1]))"'
 fi
 
 # remove node_modules
