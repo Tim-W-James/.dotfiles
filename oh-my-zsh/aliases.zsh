@@ -285,7 +285,7 @@ if [[ -x "$(command -v kubectl)" ]] && [[ -x "$(command -v fzf)" ]]; then
 
   # minikube
   if [[ -x "$(command -v minikube)" ]] && [[ -x "$(command -v ctlptl)" ]]; then
-    alias minikube-tilt="ctlptl create cluster minikube --registry=ctlptl-registry --name tilt"
+    alias minikube-tilt="minikube stop -p tilt && minikube delete -p tilt && ctlptl create cluster minikube --registry=ctlptl-registry --name tilt"
   fi
 fi
 

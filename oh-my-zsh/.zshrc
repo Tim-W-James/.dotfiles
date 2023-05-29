@@ -79,7 +79,7 @@ plugins=(
   history dirhistory last-working-dir
   colorize colored-man-pages
   git gh git-auto-fetch
-  # nvm node npm
+  # nvm node npm yarn
   # aws
   # docker docker-compose kubectl
   # terraform

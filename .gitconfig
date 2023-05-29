@@ -41,10 +41,10 @@
   a = add
   aa = add --all
   ap = -c 'interactive.diffFilter=less' add --patch
-  c = commit -m
-  ac = commit -am
-  cp = "!f() { git commit -m \"$@\" && git push; }; f"
-  acp = "!f() { git commit -am \"$@\" && git push; }; f"
+  c = commit -S -m
+  ac = commit -S -am
+  cp = "!f() { git commit -S -m \"$@\" && git push; }; f"
+  acp = "!f() { git commit -S -am \"$@\" && git push; }; f"
   p = "!f() { git push origin && git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD); }; f"
   pl = "!f() { git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD) && git pull origin; }; f"
   push-force = push --force-with-lease
@@ -59,7 +59,7 @@
   browse = !gh browse
   fresh = reset --hard
   fresh-clean = !git reset --hard && git clean -fd
-  init-remote = "!f() { git init && git add . && git commit --allow-empty -m \"Initial commit\" && git branch -M main && git remote add origin \"$@\" && git push -u origin main; }; f"
+  init-remote = "!f() { git init && git add . && git commit --allow-empty -S -m \"Initial commit\" && git branch -M main && git remote add origin \"$@\" && git push -u origin main; }; f"
   rb = rebase --interactive
   rebase-all = rebase --interactive --root
   pick = "!f() { git show \"$@\" | git apply; }; f"
