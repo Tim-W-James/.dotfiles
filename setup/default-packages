@@ -4,6 +4,7 @@ yarn
 eslint
 prettier
 serverless
+aws-cdk
 terraform
 nodemon
 typescript
@@ -16,3 +17,4 @@ commitizen
 vtop
 tldr
 npkill
+prisma
