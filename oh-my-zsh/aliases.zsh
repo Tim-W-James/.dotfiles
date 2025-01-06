@@ -285,7 +285,7 @@ if [[ -x "$(command -v kubectl)" ]] && [[ -x "$(command -v fzf)" ]]; then
 
   # minikube
   if [[ -x "$(command -v minikube)" ]] && [[ -x "$(command -v ctlptl)" ]]; then
-    alias minikube-tilt="minikube stop -p tilt && minikube delete -p tilt && ctlptl create cluster minikube --registry=ctlptl-registry --name tilt"
+    alias minikube-tilt="minikube stop -p tilt; minikube delete -p tilt; ctlptl create cluster minikube --registry=ctlptl-registry --name tilt"
   fi
 fi
 
@@ -298,6 +298,13 @@ fi
 # remove node_modules
 alias node-clean="rm -rf node_modules/"
 alias node-clean-lockfile="node-clean && rm -f package-lock.json && rm -f yarn.lock && rm -f pnpm-lock.yaml"
+
+# tilt
+if [ -x "$(command -v tilt)" ]; then
+  alias tlu="tilt up"
+  alias tld="tilt down"
+  alias tlr="tilt down && tilt up"
+fi
 
 # ! WSL2 only
 # TODO set username

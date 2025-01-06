@@ -47,7 +47,7 @@
   acp = "!f() { git commit -S -am \"$@\" && git push; }; f"
   p = "!f() { git push origin && git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD); }; f"
   pl = "!f() { git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD) && git pull origin; }; f"
-  push-force = push --force-with-lease
+  push-force = "push --force-with-lease"
   pull-force = !git discard && git pull
   pull-combine = !git pull-force && git undiscard
   untrack = rm -r --cached
