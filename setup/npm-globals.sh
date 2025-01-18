@@ -1,7 +1,6 @@
 #!/bin/bash
 if [ -x "$(command -v npm)" ]; then
   # ! add important packages to $NVM_DIR/default-packages
-  npm i -g pnpm
   npm i -g yarn
   npm i -g eslint
   npm i -g commitizen

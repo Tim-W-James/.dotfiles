@@ -74,12 +74,13 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # Commented plugins require manual install
 # https://github.com/unixorn/awesome-zsh-plugins#plugins
 plugins=(
-  sudo web-search dotenv command-not-found magic-enter
+  z sudo web-search command-not-found magic-enter
   copypath copyfile copybuffer jsontools aliases
   history dirhistory last-working-dir
   colorize colored-man-pages
   git gh git-auto-fetch
   # nvm node npm yarn
+  # direnv
   # aws
   # docker docker-compose kubectl
   # terraform
@@ -91,11 +92,8 @@ plugins=(
   # multipass
   # minikube
   # lpass
-  # zsh-z
   # fzf
   # asdf
-  # fzf-tab # ! not compatible with zsh-autocomplete
-  # zsh-direnv # ! not compatible with dotenv
   # zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete
 )
 
@@ -113,17 +111,17 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
+# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='code'
-#   alias -s {cs,ts,html,json,xml,md}=code
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='code'
+  alias -s {cs,ts,html,json,xml,md}=code
+fi
 # Or just use vim for everything
-export EDITOR='vim'
+# export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -162,6 +160,9 @@ fi
 # firefox developer
 # export PATH=/opt/firefox/firefox:$PATH
 
+# ! WSL2 only - browser path
+# export BROWSER='/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe'
+
 # =======
 # aliases
 # =======
@@ -183,17 +184,13 @@ fi
 # plugin configuration
 # ====================
 
-export ZSH_DOTENV_PROMPT=false # ! not compatible with direnv
-# export DIRENV_LOG_FORMAT="" # silent output
-
-# fzf
-# export FZF_BASE=/home/linuxbrew/.linuxbrew/opt/fzf
+export DIRENV_LOG_FORMAT="" # silent output
 
 # autosuggestion fixes
 # ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste up-line-or-search down-line-or-search expand-or-complete accept-line push-line-or-edit)
 
 # magic enter
-alias __magic_enter_prefix='(command -v direnv 2>/dev/null 1>/dev/null && ((((direnv status | grep "Found RC allowed false") && direnv allow) 2>/dev/null 1>/dev/null) && echo "direnv allow"))'
+alias __magic_enter_prefix='(command -v direnv 2>/dev/null 1>/dev/null && ((((direnv status | grep -iE "Found RC allowed (false|1)") && direnv allow) 2>/dev/null 1>/dev/null) && echo "direnv allow"))'
 if [ -x "$(command -v colorls)" ]; then
   export MAGIC_ENTER_OTHER_COMMAND=' __magic_enter_prefix || colorls -Al --group-directories-first .'
   export MAGIC_ENTER_GIT_COMMAND=' __magic_enter_prefix || colorls -Al --gs --group-directories-first .'
@@ -220,7 +217,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 # zle -A {.,}history-incremental-search-forward
 # zle -A {.,}history-incremental-search-backward
 # requires fzf to be installed
-# style ':autocomplete:*' fzf-completion yes
+# zstyle ':autocomplete:*' fzf-completion yes
 # requires z to be installed
 # zstyle ':autocomplete:*' recent-dirs zsh-z
 
@@ -277,6 +274,13 @@ load-nvmrc
 if [ -x "$(command -v pyenv)" ]; then
   eval "$(pyenv init -)"
 fi
+
+# load SSH key with keychain
+# if [ -z "$SSH_AUTH_SOCK" ]; then
+#   eval $(keychain --quiet --eval --agents ssh github_id_ed25519)
+# fi
+# GPG key
+# export GPG_TTY=$TTY
 
 # ========================
 # Terminal Specific Config

@@ -17,6 +17,8 @@ if [ -x "$(command -v brew)" ]; then
   brew install duf
   brew install broot
   brew install dog
+  brew install mkcert
+  brew install pnpm
 else
   echo "brew not found"
 fi

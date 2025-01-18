@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ -x "$(command -v apt)" ]; then
   apt update
-  apt install apt-transport-https ca-certificates curl software-properties-common -y
+  apt install apt-transport-https ca-certificates curl software-properties-common libnss3-tools -y
   # git
   apt install git -y
   # java
@@ -19,6 +19,7 @@ if [ -x "$(command -v apt)" ]; then
   apt-get install zip unzip -y
   apt-get install jq -y
   apt install xclip -y
+  curl -sfL https://direnv.net/install.sh | bash
 else
   echo "apt not found"
 fi
