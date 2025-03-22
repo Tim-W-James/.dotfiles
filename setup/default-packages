@@ -12,7 +12,6 @@ ts-node
 create-react-app
 grunt
 bower
-netlify-cli
 commitizen
 vtop
 tldr
