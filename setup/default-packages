@@ -3,10 +3,8 @@
 yarn
 eslint
 prettier
-serverless
 aws-cdk
 terraform
-nodemon
 typescript
 ts-node
 create-react-app
@@ -16,4 +14,3 @@ commitizen
 vtop
 tldr
 npkill
-prisma

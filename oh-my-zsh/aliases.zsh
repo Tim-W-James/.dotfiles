@@ -46,7 +46,7 @@ if [ -x "$(command -v fzf)" ]; then
 fi
 
 # firefox developer
-alias firefox-dev="/opt/firefox/firefox"
+# alias firefox-dev="/opt/firefox/firefox"
 
 # environment
 alias env-export="export \$(cat .env)"
@@ -122,7 +122,7 @@ fi
 
 # base64
 base64_encode() {
-  echo -n "$1" | base64
+  echo -n "$1" | base64 -w 0
 }
 base64_decode() {
   echo -n "$1" | base64 -d
